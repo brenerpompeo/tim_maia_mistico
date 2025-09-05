@@ -1,0 +1,58 @@
+/* Estilos customizados complementares ao Tailwind */
+.hero__highlight {
+  text-decoration-color: rgba(16, 185, 129, .5);
+}
+#drawer.open { display: block; }
+#sticky.show { display: block; }
+
+/* Efeito de elevação no header com scroll */
+#site-header.elev {  
+  background: rgba(255, 255, 255, .95);  
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+html.dark #site-header.elev {  
+  background: rgba(15, 23, 42, .95);  
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Animação de revelação de elementos no scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Impede o scroll da página quando o modal está aberto */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* NOVA: Animação suave para o accordion <details> */
+details > summary {
+  list-style: none; /* Esconde o marcador padrão */
+}
+details > summary::-webkit-details-marker {
+  display: none; /* Esconde o marcador padrão para o Safari */
+}
+details .content-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-in-out;
+}
+details[open] {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+html.dark details[open] {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+details[open] .content-wrapper {
+  grid-template-rows: 1fr;
+}
+details .content-inner {
+  overflow: hidden;
+  padding-top: 0.5rem; /* Espaçamento interno para o texto não colar no summary */
+}
